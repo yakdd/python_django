@@ -30,4 +30,4 @@ class Order(models.Model):
     created_at = models.DateField()
 
     def __str__(self):
-        return f'{self.client}. {self.products}. {self.total_price}. {self.created_at}'
+        return f'{self.client}. {self.total_price}. {self.created_at}'
