@@ -1,0 +1,15 @@
+{% extends 'hw3_app/base.html' %}
+{% block title %}Order №_{{ order.id }}{% endblock %}
+{% block content %}
+<h3>Order №_{{ order.id }}</h3>
+<ul>
+    <li>Client: {{ order.client.name }}</li>
+    <li>Price: {{ order.total_price }}</li>
+    <li>Date: {{ order.created_at }}</li>
+    <li>Goods in order - {{ order.products.count }} items:<br>
+        {% for product in order.products.all %}
+        &nbsp;-&nbsp;{{ product.name }}<br>
+        {% endfor %}
+    </li>
+</ul>
+{% endblock %}

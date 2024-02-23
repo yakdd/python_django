@@ -1,0 +1,17 @@
+{% extends 'hw3_app/base.html' %}
+{% block title %}Clients database{% endblock %}
+{% block content %}
+<h3>{{ length }} clients in database.</h3>
+{% for client in clients %}
+    <div>
+        <h4>{{ forloop.counter }}. {{ client.name }}</h4>
+        <ul>
+            <li>Email: {{ client.email }}</li>
+            <li>Phone: {{ client.phone }}</li>
+            <li>Address: {{ client.address }}</li>
+            <li>Registration date: {{ client.registration_date }}</li>
+            <li><a href="{% url 'client_orders' client.id %}">Orders list</a></li>
+        </ul>
+    </div><br>
+{% endfor %}
+{% endblock %}
