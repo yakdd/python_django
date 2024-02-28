@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Homewrok 3{% endblock %}</title>
+</head>
+<body>
+<header><h2>STORE Project</h2></header>
+<hr>
+{% block content %}
+<h3>Store content</h3>
+<ol>
+    <li>python manage.py fill_client_db - заполнить базу данных клиентами</li>
+    <li>python manage.py fill_product_db - заполнить базу данных товарами</li>
+    <li>python manage.py create_order - создать заказы</li>
+    <li><a href="http://127.0.0.1:8000/clients/">Clients DB</a></li>
+</ol>
+
+{% endblock %}
+<hr>
+<footer><h2>FOOTER</h2></footer>
+</body>
+</html>
