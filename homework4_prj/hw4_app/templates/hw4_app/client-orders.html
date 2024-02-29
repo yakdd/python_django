@@ -1,0 +1,47 @@
+{% extends 'hw4_app/base.html' %}
+{% block title %}{{ client.name }}'s orders history{% endblock %}
+{% block content %}
+<h3>{{ client.name }}'s orders history:</h3>
+{% for order in orders %}
+    <div>
+        {{ forloop.counter }}. <b>Sum:</b> {{ order.total_price }} <b>Date:</b> {{ order.created_at }}
+        &nbsp; / &nbsp;<a href="{% url 'order_detail' order.id %}">details</a>
+    </div>
+{% endfor %}
+
+
+<h3>Client's orders last week:</h3>
+{% for order in week %}
+    {% if order is not None %}
+        <div>
+            {{ forloop.counter }}. <b>Sum:</b> {{ order.total_price }} <b>Date:</b> {{ order.created_at }}
+            &nbsp; / &nbsp;<a href="{% url 'order_detail' order.id %}">details</a>
+        </div>
+    {% else %}no orders
+    {% endif %}
+{% endfor %}
+
+
+<h3>Client's orders last month:</h3>
+{% for order in month %}
+    {% if order is not None %}
+        <div>
+            {{ forloop.counter }}. <b>Sum:</b> {{ order.total_price }} <b>Date:</b> {{ order.created_at }}
+            &nbsp; / &nbsp;<a href="{% url 'order_detail' order.id %}">details</a>
+        </div>
+    {% else %}no orders
+    {% endif %}
+{% endfor %}
+
+
+<h3>Client's orders for the last two years:</h3>
+{% for order in year_2 %}
+    {% if order is not None %}
+        <div>
+            {{ forloop.counter }}. <b>Sum:</b> {{ order.total_price }} <b>Date:</b> {{ order.created_at }}
+            &nbsp; / &nbsp;<a href="{% url 'order_detail' order.id %}">details</a>
+        </div>
+    {% else %}no orders
+    {% endif %}
+{% endfor %}
+{% endblock %}

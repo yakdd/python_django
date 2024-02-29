@@ -1,0 +1,17 @@
+{% extends 'hw4_app/base.html' %}
+{% block title %}Product №_{{ product.id }}{% endblock %}
+{% block content %}
+{% load static %}
+<h3>Обновить информацию о товаре "{{ product.name }}"</h3>
+<ul>
+{% for img in images %}
+    <li><img src="{{ img.image.url }}" width="200"></li>
+{% endfor %}
+</ul>
+<p><a href="{% url 'upload_image' product.id %}">Добавить изображение</a></p><br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Обновить">
+</form>
+{% endblock %}
