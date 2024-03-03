@@ -1,0 +1,15 @@
+{% extends 'hw4_app/base.html' %}
+{% block title %}Products database{% endblock %}
+{% block content %}
+<h3>{{ length }} products in database.</h3>
+{% for product in products %}
+    <div>
+        <h4>{{ forloop.counter }}. {{ product.name }} (<a href="{% url 'product_edit' product.id %}">Изменить данные</a>)</h4>
+        <ul>
+            <li><b>Описание:</b> {{ product.description }}</li>
+            <li><b>Цена:</b> {{ product.price }}</li>
+            <li><b>Количество:</b> {{ product.product_count }}</li>
+        </ul>
+    </div><br>
+{% endfor %}
+{% endblock %}
